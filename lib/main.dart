@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: BlocProvider<CountryCubit>(
         create: (context) => CountryCubit(countryApiClient),
-        child: CountryView(),
+        child: const CountryView(),
       ),
     );
   }
