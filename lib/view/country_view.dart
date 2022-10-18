@@ -13,7 +13,6 @@ class CountryView extends StatelessWidget {
           centerTitle: true,
         ),
         body: BlocBuilder<CountryCubit, CountryState>(builder: (context, state) {
-          print('Loading');
           if (state is CountryLoading) {
             return Center(
               child: CircularProgressIndicator(),

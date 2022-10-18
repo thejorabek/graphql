@@ -23,6 +23,7 @@ class CountryApiClient {
     );
     if (result.hasException) throw GetJobsRequestFailure();
     final data = result.data?['jobs'] as List;
-    return data.map((dynamic e) => Country.fromJson(e as Map<String, dynamic>)).toList();
+    final lastData = data.map((dynamic e) => Country.fromJson(e as Map<String, dynamic>)).toList();
+    return lastData;
   }
 }
