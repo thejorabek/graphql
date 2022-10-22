@@ -17,13 +17,13 @@ class CountryApiClient {
 
   final GraphQLClient _graphQLClient;
 
-  Future<List> getCountires() async {
+   getCountires() async {
     final result = await _graphQLClient.query(
       QueryOptions(document: gql(getCountries)),
     );
     if (result.hasException) throw GetJobsRequestFailure();
-    final data = result.data?['countries'] as List;
-    final lastData = data.map((dynamic e) => Country.fromJson(e as Map<String, dynamic>)).toList();
+    final data = result.data as List;
+    final lastData = data.map((e) => Country.fromJson(e)).toList();
     return lastData;
   }
 }

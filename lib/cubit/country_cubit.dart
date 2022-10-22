@@ -16,7 +16,7 @@ class CountryCubit extends Cubit<CountryState> {
     emit(CountryLoading());
     try {
       final countries = countryApiClient.getCountires();
-      emit(CountrySuccess(countries: countries as List<Country>));
+      emit(CountrySuccess(countries: countries));
     } catch (e) {
       emit(CountryError(errorMessage: e.toString()));
     }
