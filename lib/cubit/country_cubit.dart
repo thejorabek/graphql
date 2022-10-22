@@ -6,7 +6,9 @@ import 'package:graphql_lesson/service/country_api_client.dart';
 part 'country_state.dart';
 
 class CountryCubit extends Cubit<CountryState> {
-  CountryCubit(this.countryApiClient) : super(CountryInitial());
+  CountryCubit(this.countryApiClient) : super(CountryInitial()) {
+    getCountries();
+  }
 
   final CountryApiClient countryApiClient;
 

@@ -14,14 +14,13 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.countryApiClient});
 
   final CountryApiClient countryApiClient;
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BlocProvider<CountryCubit>(
-        create: (context) => CountryCubit(countryApiClient),
-        child: const CountryView(),
+    return BlocProvider(
+      create: (context) => CountryCubit(countryApiClient),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: CountryView(),
       ),
     );
   }
