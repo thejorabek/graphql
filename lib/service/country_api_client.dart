@@ -1,5 +1,4 @@
-import 'package:graphql/client.dart';
-import 'package:graphql_lesson/model/country_model.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:graphql_lesson/queries/get_countries_query.dart';
 
 class GetJobsRequestFailure implements Exception {}
@@ -17,13 +16,12 @@ class CountryApiClient {
 
   final GraphQLClient _graphQLClient;
 
-   getCountires() async {
+  getCountires() async {
     final result = await _graphQLClient.query(
       QueryOptions(document: gql(getCountries)),
     );
     if (result.hasException) throw GetJobsRequestFailure();
-    final data = result.data as List;
-    final lastData = data.map((e) => Country.fromJson(e)).toList();
-    return lastData;
+    print(result.data!['countries']);
+    return (result.data!['countries']);
   }
 }
